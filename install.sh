@@ -259,19 +259,19 @@ function compile_vim_on_centos()
         perl-ExtUtils-XSpp perl-ExtUtils-CBuilder \
         perl-ExtUtils-Embed libX11-devel ncurses-devel
     
-    rm -rf ~/vim82
-    git clone https://gitee.com/chxuan/vim82.git ~/vim82
-    cd ~/vim82
-    ./configure --with-features=huge \
-        --enable-multibyte \
-        --with-tlib=tinfo \
-        --enable-rubyinterp=yes \
-        --enable-pythoninterp=yes \
-        --enable-perlinterp=yes \
-        --enable-luainterp=yes \
-        --enable-gui=gtk2 \
-        --enable-cscope \
-        --prefix=/usr
+    rm -rf ~/Downloads/vim
+    git clone https://github.com/vim/vim.git ~/Downloads/vim
+    cd ~/Downloads/vimi
+    ./configure \
+        --with-features=huge \
+        --prefix=/usr \
+        --enable-rubyinterp \
+        --enable-fail-if-missing \
+        --enable-luainterp \
+        --enable-perlinterp \
+        --enable-fontset \
+        --enable-python3interp \
+        --with-python3-command=python3 
     make
     sudo make install
     cd -
