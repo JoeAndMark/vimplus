@@ -487,7 +487,7 @@ function install_vim_plugin()
 # 安装ycm插件
 function install_ycm()
 {
-    git clone https://gitee.com/chxuan/YouCompleteMe-clang.git ~/.vim/plugged/YouCompleteMe
+    git clone https://github.com/ycm-core/YouCompleteMe.git ~/.vim/plugged/YouCompleteMe
 
     cd ~/.vim/plugged/YouCompleteMe
     distro=`get_linux_distro`
@@ -525,12 +525,12 @@ function install_ycm()
                 return
             fi
         } || {
-            python3 ./install.py --clang-completer
+            python3 ./install.py --clang-completer --clangd-completer
         } || {
             echo "##########################################"
             echo "Build error, trying rebuild without Clang."
             echo "##########################################"
-            python3 ./install.py
+            python3 ./install.py --clang-completer --clangd-completer
         }
     fi
 }
